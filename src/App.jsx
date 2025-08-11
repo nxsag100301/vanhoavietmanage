@@ -1,11 +1,17 @@
 import './App.css'
-import { Button } from './components/ui/button'
+import ScrollToTop from './components/ScrollToTop'
+import Layout from './Layout'
+import { BrowserRouter, HashRouter, Router } from 'react-router-dom'
+import AppRoutes from './routes/AppRoutes'
 
 function App() {
   return (
-    <div>
-      <Button className='text-primary-600'>Nguyen Xuan Sang</Button>
-    </div>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Layout>
+        <AppRoutes />
+      </Layout>
+    </BrowserRouter>
   )
 }
 
