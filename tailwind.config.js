@@ -6,60 +6,60 @@ export default {
     extend: {
       colors: {
         // Base
-        background: '#FFFFFF',
+        background: '#FBFBFB',
         white: '#FFFFFF',
-        black: '#000000',
+        black: '#181818',
         border: 'hsl(var(--border))',
         foreground: 'hsl(var(--foreground))',
 
         // Text
         text: {
-          50: '#F9F9FC',
-          100: '#F0F1F3',
-          200: '#E0E2E7',
-          300: '#C2C6CE',
+          50: '#F9F9FB',
+          100: '#EDEEF2',
+          200: '#DEE0E7',
+          300: '#CACCD7',
           400: '#B3B5C6',
-          500: '#858D9D',
-          600: '#6B7280',
-          700: '#4B5563',
-          800: '#374151',
-          900: '#1F2937'
+          500: '#9FA0B5',
+          600: '#8A89A2',
+          700: '#76768C',
+          800: '#626172',
+          900: '#52515E',
+          950: '#302F37'
         },
 
         // Brand Primary - Seaweed
         primary: {
-          50: '#F3F7F5',
-          100: '#E3ECE6',
-          200: '#C1D7C9',
-          300: '#A1C3AD',
-          400: '#7DAC8E',
-          500: '#5B9471',
-          600: '#3B7B54',
-          700: '#2F6243',
-          800: '#234A32',
-          900: '#163423',
-          DEFAULT: '#3B7B54',
-          foreground: '#FFFFFF'
+          50: '#F2F5F0',
+          100: '#E3E8DF',
+          200: '#CAD4C2',
+          300: '#A9B89E',
+          400: '#8B9E7D',
+          500: '#6D8260',
+          600: '#54664A',
+          700: '#4B5A43',
+          800: '#384133',
+          900: '#32392E',
+          950: '#181D16'
         },
 
         // Error
         error: {
-          50: '#FEECEC',
-          100: '#FCD6D6',
-          200: '#F9B5B5',
-          300: '#F48F8F',
-          400: '#EE6C6C',
-          500: '#E65050',
-          600: '#D62F2F',
-          700: '#B82020',
-          800: '#921919',
-          900: '#6F1313',
-          DEFAULT: '#E65050'
+          50: '#FEF3F2',
+          100: '#FEE4E2',
+          200: '#FFCDC9',
+          300: '#FDAAA4',
+          400: '#F97970',
+          500: '#F04438',
+          600: '#D92D20',
+          700: '#B42318',
+          800: '#912018',
+          900: '#7A271A',
+          950: '#50160C'
         },
 
         // Warning
         warning: {
-          50: '#FFFBEA',
+          50: '#FFFAEB',
           100: '#FEF0C7',
           200: '#FEDF89',
           300: '#FEC84B',
@@ -69,82 +69,82 @@ export default {
           700: '#B54708',
           800: '#93370D',
           900: '#7A2E0E',
-          DEFAULT: '#F79009'
+          950: '#4E1D09'
         },
 
         // Success
         success: {
-          50: '#E8F8F0',
-          100: '#CFF0E0',
-          200: '#9FE1C0',
-          300: '#6FD3A1',
-          400: '#3FC582',
-          500: '#15B26B',
-          600: '#0F8E56',
-          700: '#0B6B41',
-          800: '#07492B',
-          900: '#032617',
-          DEFAULT: '#15B26B'
+          50: '#F6FEF9',
+          100: '#DCFAE6',
+          200: '#ABEFC6',
+          300: '#75E0A7',
+          400: '#47DC89',
+          500: '#17B26A',
+          600: '#079455',
+          700: '#067647',
+          800: '#085D3A',
+          900: '#074D31',
+          950: '#053321'
         },
 
         // Secondary - Almond
-        almond: {
-          50: '#FFF9F2',
-          100: '#FEF0DC',
-          200: '#FDE2B9',
-          300: '#FBCB87',
-          400: '#F6B15E',
-          500: '#E98E39',
-          600: '#CA6C24',
-          700: '#A1511B',
-          800: '#773917',
-          900: '#562B12',
-          DEFAULT: '#E98E39'
+        secondary: {
+          50: '#FBF7F1',
+          100: '#F6EDDE',
+          200: '#F0DFC8',
+          300: '#E1BC90',
+          400: '#D39A64',
+          500: '#CA8145',
+          600: '#BC6C3A',
+          700: '#9C5532',
+          800: '#7E452E',
+          900: '#663A28',
+          950: '#663A28'
         },
 
         // Light Blue
         lightblue: {
-          50: '#F3F8FF',
-          100: '#E0EFFF',
-          200: '#B8DBFF',
-          300: '#8CC5FF',
-          400: '#5FAEFF',
-          500: '#338FFF',
-          600: '#1D6FD6',
-          700: '#1553A3',
-          800: '#0F3871',
-          900: '#082141',
-          DEFAULT: '#338FFF'
+          50: '#F9F9FF',
+          100: '#E9E9FE',
+          200: '#D6D6FE',
+          300: '#B8B5FD',
+          400: '#948BFA',
+          500: '#715CF6',
+          600: '#5E3AED',
+          700: '#4F28D9',
+          800: '#4221B6',
+          900: '#381D95',
+          950: '#201065'
         },
 
         // Dark Jungle Green
         jungle: {
-          50: '#F2F8F3',
-          100: '#DAEDE0',
-          200: '#B5DBC0',
-          300: '#8EC9A0',
-          400: '#69B880',
-          500: '#4FAE6B',
-          600: '#3E8A54',
-          700: '#2D663E',
-          800: '#1D4328',
-          900: '#0D2112',
-          DEFAULT: '#4FAE6B'
+          50: '#F3F9EC',
+          100: '#E4F0D7',
+          200: '#CAE3B3',
+          300: '#A9D086',
+          400: '#89BC5F',
+          500: '#6BA141',
+          600: '#527F31',
+          700: '#3F6229',
+          800: '#364F25',
+          900: '#2F4423',
+          950: '#1E3114'
         },
 
         // Gray Neutral
         grayneutral: {
-          50: '#F9FAFB',
-          100: '#F3F4F6',
-          200: '#E5E7EB',
-          300: '#D1D5DB',
-          400: '#9CA3AF',
-          500: '#6B7280',
-          600: '#4B5563',
-          700: '#374151',
-          800: '#1F2937',
-          900: '#111827',
-          DEFAULT: '#6B7280'
+          50: '#F7F7F7',
+          100: '#E7E7E980',
+          200: '#DDDDE0',
+          300: '#C6C6CA',
+          400: '#A9AAB1',
+          500: '#95949D',
+          600: '#84838D',
+          700: '#78767F',
+          800: '#64636A',
+          900: '#535256',
+          950: '#343437'
         }
       },
       fontFamily: {
@@ -168,12 +168,17 @@ export default {
         subtitle1: ['20px', { lineHeight: '120%', fontWeight: '500' }],
         subtitle2: ['18px', { lineHeight: '160%', fontWeight: '500' }],
         subtitle3: ['16px', { lineHeight: '160%', fontWeight: '500' }],
-        body1: ['16px', { lineHeight: '160%', fontWeight: '500' }],
-        body2: [
+        body1: ['16px', { lineHeight: '160%', fontWeight: '400' }],
+        'body2-medium': [
           '14px',
           { lineHeight: '120%', letterSpacing: '-0.02em', fontWeight: '500' }
         ],
-        tagline: ['12px', { lineHeight: '120%', fontWeight: '500' }]
+        'body2-regular': [
+          '14px',
+          { lineHeight: '120%', letterSpacing: '-0.02em', fontWeight: '400' }
+        ],
+        'tagline-regular': ['12px', { lineHeight: '120%', fontWeight: '400' }],
+        'tagline-semibold': ['12px', { lineHeight: '120%', fontWeight: '500' }]
       },
       borderRadius: {
         lg: 'var(--radius)',

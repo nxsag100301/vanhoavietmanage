@@ -13,6 +13,8 @@ import Orders from './Products/Orders'
 import Notifications from './Notifications'
 import Contact from './Contact'
 import Community from './Community'
+import Login from './Login'
+import Register from './Register'
 
 export {
   HomePage,
@@ -29,5 +31,7 @@ export {
   Orders,
   Notifications,
   Contact,
-  Community
+  Community,
+  Login,
+  Register
 }
