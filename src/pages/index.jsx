@@ -15,6 +15,7 @@ import Contact from './Contact'
 import Community from './Community'
 import Login from './Login'
 import Register from './Register'
+import Profile from './Profile'
 
 export {
   HomePage,
@@ -33,5 +34,6 @@ export {
   Contact,
   Community,
   Login,
-  Register
+  Register,
+  Profile
 }

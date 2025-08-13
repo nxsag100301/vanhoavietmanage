@@ -16,6 +16,12 @@ import arrowLeftAvailable from '@/assets/icons/arrowLeftAvailable.png'
 import arrowLeftUnAvailable from '@/assets/icons/arrowLeftUnAvailable.png'
 import search from '@/assets/icons/search.png'
 import calendar from '@/assets/icons/calendar.png'
+import pencil from '@/assets/icons/pencil.png'
+import confirmed from '@/assets/icons/confirmed.png'
+import backArrow from '@/assets/icons/backArrow.png'
+import forwardArrow from '@/assets/icons/forwardArrow.png'
+import loader from '@/assets/icons/loader.png'
+import checked from '@/assets/icons/checked.png'
 
 export default {
   home,
@@ -35,5 +41,11 @@ export default {
   arrowLeftAvailable,
   arrowLeftUnAvailable,
   search,
-  calendar
+  calendar,
+  pencil,
+  confirmed,
+  backArrow,
+  forwardArrow,
+  loader,
+  checked
 }

@@ -49,7 +49,7 @@ const DatePicker = () => {
   }
 
   return (
-    <div className='relative flex gap-2 w-[272px]'>
+    <div className='relative flex gap-2 w-[200px] 2xl:w-[272px]'>
       <Input
         id='date'
         value={value}

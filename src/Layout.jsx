@@ -6,9 +6,9 @@ export default function Layout({ children }) {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main className='w-full'>
+      <main className='w-full bg-text-50 pb-8'>
         <MainHeader />
-        {children}
+        <div className='px-12 '> {children}</div>
       </main>
     </SidebarProvider>
   )

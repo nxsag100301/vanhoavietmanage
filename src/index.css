@@ -136,3 +136,7 @@
 .hide-scrollbar::-webkit-scrollbar {
   display: none; /* Chrome, Safari và Opera */
 }
+
+.page-title {
+  @apply text-h2 text-primary-700 my-8;
+}

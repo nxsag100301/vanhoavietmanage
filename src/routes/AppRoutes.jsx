@@ -17,7 +17,8 @@ import {
   Contact,
   Community,
   Login,
-  Register
+  Register,
+  Profile
 } from '@/pages'
 import Layout from '@/Layout'
 
@@ -43,6 +44,9 @@ const AppRoutes = () => {
                 <Route path='/revenue' element={<Revenue />} />
                 <Route path='/customer' element={<Customer />} />
                 <Route path='/expense' element={<Expense />} />
+
+                {/* Profile */}
+                <Route path='/profile' element={<Profile />} />
 
                 {/* Products */}
                 <Route path='/products/list' element={<ProductList />} />

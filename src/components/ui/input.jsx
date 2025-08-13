@@ -19,7 +19,8 @@ const Input = React.forwardRef(
               focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-grayneutral-400 
               disabled:cursor-not-allowed disabled:opacity-50 md:text-sm`,
               className,
-              ariaInvalid && 'border-error-600 placeholder:text-error-600',
+              ariaInvalid &&
+                'border-error-600 placeholder:text-error-600 focus-visible:ring-error-600',
               startIcon && 'px-12'
             )}
             ref={ref}

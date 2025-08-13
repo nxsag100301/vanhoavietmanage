@@ -1,5 +1,4 @@
-import { ChevronDown } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import {
   Sidebar,
   SidebarContent,
@@ -8,31 +7,16 @@ import {
   SidebarGroupContent,
   SidebarGroupLabel,
   SidebarMenu,
-  SidebarMenuButton,
   SidebarMenuItem,
-  SidebarMenuSub,
   SidebarTrigger
 } from '@/components/ui/sidebar'
-import {
-  Collapsible,
-  CollapsibleTrigger,
-  CollapsibleContent
-} from '@/components/ui/collapsible'
 import { useState } from 'react'
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger
-} from '../ui/dropdown-menu'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger
-} from '@/components/ui/tooltip'
-import { useIsMobile } from '@/hooks/use-mobile'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import icons from '@/constants/icons'
+import DropdownCollapsed from './components/DropdownCollapsed'
+import DropdownExpanded from './components/DropdownExpanded'
+import MenuItemCollapsed from './components/MenuItemCollapsed'
+import MenuItemExpanded from './components/MenuItemExpanded'
 
 // Menu items
 const items = [
@@ -84,7 +68,6 @@ const items = [
 export function AppSidebar() {
   const location = useLocation()
   const [isCollapsed, setIsCollapsed] = useState(false)
-  const isMobile = useIsMobile()
 
   return (
     <TooltipProvider delayDuration={200}>
@@ -104,98 +87,22 @@ export function AppSidebar() {
                 <SidebarMenu className='space-y-[20px]'>
                   {group.children.map((item) =>
                     item.children ? (
-                      isCollapsed && !isMobile ? (
+                      isCollapsed ? (
                         // --- Dropdown khi collapsed ---
-                        <SidebarMenuItem
+                        <DropdownCollapsed
                           key={item.url}
-                          className='p-[10px] rounded-xl'
-                        >
-                          <DropdownMenu>
-                            <Tooltip>
-                              <TooltipTrigger asChild>
-                                <DropdownMenuTrigger asChild>
-                                  <button className='flex items-center justify-center w-full cursor-pointer'>
-                                    <img
-                                      src={item.icon}
-                                      className='h-8 w-8'
-                                      alt={item.title}
-                                    />
-                                  </button>
-                                </DropdownMenuTrigger>
-                              </TooltipTrigger>
-                              <TooltipContent side='right'>
-                                {item.title}
-                              </TooltipContent>
-                            </Tooltip>
-
-                            <DropdownMenuContent side='right' align='start'>
-                              {item.children.map((child) => (
-                                <DropdownMenuItem key={child.url} asChild>
-                                  <Link
-                                    to={child.url}
-                                    className={`text-subtitle1 ${
-                                      location.pathname === child.url
-                                        ? 'bg-grayneutral-100 text-black'
-                                        : 'text-text-400'
-                                    }`}
-                                  >
-                                    {child.title}
-                                  </Link>
-                                </DropdownMenuItem>
-                              ))}
-                            </DropdownMenuContent>
-                          </DropdownMenu>
-                        </SidebarMenuItem>
+                          title={item.title}
+                          icon={item.icon}
+                          children={item.children}
+                        />
                       ) : (
-                        // --- Collapsible khi expanded hoặc mobile ---
-                        <Collapsible
+                        // --- Collapsible khi expanded ---
+                        <DropdownExpanded
                           key={item.url}
-                          className='group/collapsible'
-                        >
-                          <SidebarMenuItem className='p-[10px] rounded-xl'>
-                            <SidebarMenuButton asChild>
-                              <CollapsibleTrigger className='flex items-center w-full'>
-                                <img
-                                  src={item.icon}
-                                  alt={item.title}
-                                  className='mr-4'
-                                  style={{ width: '2rem', height: '2rem' }}
-                                />
-                                <span className='text-subtitle1 text-black'>
-                                  {item.title}
-                                </span>
-                                <ChevronDown className='ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180' />
-                              </CollapsibleTrigger>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                          <CollapsibleContent className='pt-[20px] space-y-[6px]'>
-                            <SidebarMenuSub className='pl-[32px]'>
-                              {item.children.map((child) => (
-                                <SidebarMenuItem
-                                  key={child.url}
-                                  className={`p-[10px] rounded-xl ${
-                                    location.pathname === child.url
-                                      ? 'bg-grayneutral-100'
-                                      : ''
-                                  }`}
-                                >
-                                  <SidebarMenuButton asChild>
-                                    <Link
-                                      to={child.url}
-                                      className={`text-subtitle1 ${
-                                        location.pathname === child.url
-                                          ? ' text-black'
-                                          : 'text-text-400'
-                                      }`}
-                                    >
-                                      {child.title}
-                                    </Link>
-                                  </SidebarMenuButton>
-                                </SidebarMenuItem>
-                              ))}
-                            </SidebarMenuSub>
-                          </CollapsibleContent>
-                        </Collapsible>
+                          title={item.title}
+                          icon={item.icon}
+                          children={item.children}
+                        />
                       )
                     ) : (
                       // --- Item không có children ---
@@ -205,40 +112,18 @@ export function AppSidebar() {
                           location.pathname === item.url ? 'bg-[#F2F5F0]' : ''
                         }`}
                       >
-                        {isCollapsed && !isMobile ? (
-                          <Tooltip>
-                            <TooltipTrigger asChild>
-                              <SidebarMenuButton asChild>
-                                <Link
-                                  to={item.url}
-                                  className='flex items-center justify-center'
-                                >
-                                  <img
-                                    src={item.icon}
-                                    alt={item.title}
-                                    style={{ width: '2rem', height: '2rem' }}
-                                  />
-                                </Link>
-                              </SidebarMenuButton>
-                            </TooltipTrigger>
-                            <TooltipContent side='right'>
-                              {item.title}
-                            </TooltipContent>
-                          </Tooltip>
+                        {isCollapsed ? (
+                          <MenuItemCollapsed
+                            url={item.url}
+                            title={item.title}
+                            icon={item.icon}
+                          />
                         ) : (
-                          <SidebarMenuButton asChild>
-                            <Link to={item.url} className='flex items-center'>
-                              <img
-                                src={item.icon}
-                                alt={item.title}
-                                className='mr-4'
-                                style={{ width: '2rem', height: '2rem' }}
-                              />
-                              <span className='text-subtitle1 text-black'>
-                                {item.title}
-                              </span>
-                            </Link>
-                          </SidebarMenuButton>
+                          <MenuItemExpanded
+                            url={item.url}
+                            title={item.title}
+                            icon={item.icon}
+                          />
                         )}
                       </SidebarMenuItem>
                     )
@@ -251,8 +136,10 @@ export function AppSidebar() {
 
         <SidebarFooter>
           <SidebarTrigger
-            className='ml-7 mb-4'
-            onClick={() => setIsCollapsed((prev) => (isMobile ? prev : !prev))}
+            className={`${
+              !isCollapsed ? 'ml-[17px]' : 'ml-[22px]'
+            } mb-4 transition-all duration-300 ease-in-out`}
+            onClick={() => setIsCollapsed((prev) => !prev)}
           />
         </SidebarFooter>
       </Sidebar>
