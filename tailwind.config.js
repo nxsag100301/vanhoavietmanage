@@ -167,7 +167,7 @@ export default {
         h5: ['20px', { lineHeight: '140%', fontWeight: '500' }],
         subtitle1: ['20px', { lineHeight: '120%', fontWeight: '500' }],
         subtitle2: ['18px', { lineHeight: '160%', fontWeight: '500' }],
-        subtitle3: ['16px', { lineHeight: '160%', fontWeight: '500' }],
+        subtitle3: ['16px', { lineHeight: '160%', fontWeight: '600' }],
         body1: ['16px', { lineHeight: '160%', fontWeight: '400' }],
         'body2-medium': [
           '14px',

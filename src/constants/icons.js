@@ -22,6 +22,16 @@ import backArrow from '@/assets/icons/backArrow.png'
 import forwardArrow from '@/assets/icons/forwardArrow.png'
 import loader from '@/assets/icons/loader.png'
 import checked from '@/assets/icons/checked.png'
+import letter from '@/assets/icons/letter.png'
+import star from '@/assets/icons/star.png'
+import starOutline from '@/assets/icons/staroutline.png'
+import arrowDown from '@/assets/icons/arrowdown.png'
+import square from '@/assets/icons/square.png'
+import printer from '@/assets/icons/printer.png'
+import sortByText from '@/assets/icons/sortbytext.png'
+import threeDotsVertical from '@/assets/icons/3dotsvertical.png'
+import arrowLeftPagination from '@/assets/icons/arrowLeftPagination.png'
+import arrowRightPagination from '@/assets/icons/arrowRightPagination.png'
 
 export default {
   home,
@@ -47,5 +57,15 @@ export default {
   backArrow,
   forwardArrow,
   loader,
-  checked
+  checked,
+  letter,
+  star,
+  starOutline,
+  arrowDown,
+  square,
+  printer,
+  sortByText,
+  threeDotsVertical,
+  arrowLeftPagination,
+  arrowRightPagination
 }

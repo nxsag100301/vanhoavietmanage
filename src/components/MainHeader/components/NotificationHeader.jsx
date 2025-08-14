@@ -11,9 +11,9 @@ const NotificationHeader = ({ tab, onChangeTab }) => {
           <NotificationBadge number={5} />
         </div>
         <div className='flex items-center gap-3'>
-          <Checkbox id='terms' />
+          <Checkbox id='readAll' />
           <Label
-            htmlFor='terms'
+            htmlFor='readAll'
             className='!text-tagline-regular text-text-950'
           >
             Đánh dấu là đã đọc tất cả
