@@ -138,5 +138,5 @@
 }
 
 .page-title {
-  @apply text-h2 text-primary-700 my-8;
+  @apply text-h4 2xl:text-h2 text-primary-700 my-4 2xl:my-8;
 }

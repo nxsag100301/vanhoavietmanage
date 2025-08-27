@@ -9,13 +9,17 @@ import {
 } from '@/components/ui/dropdown-menu'
 import icons from '@/constants/icons'
 
+// data = [
+//   {name: String, value: String, icon: any}
+// ]
+
 const Dropdown = ({ data, onChange }) => {
   const [open, setOpen] = useState(false)
   const [activeIem, setActiveItem] = useState(data[0])
 
   const handleChangeValue = (item) => {
     setActiveItem(item)
-    onChange(item)
+    onChange(item.value)
   }
 
   return (
@@ -23,25 +27,30 @@ const Dropdown = ({ data, onChange }) => {
       <DropdownMenuTrigger asChild>
         <Button
           variant='outline'
-          className='w-[287px] h-[50px] bg-grayneutral-50 hover:grayneutral-100 px-6 py-[3px] justify-between text-body2-medium text-grayneutral-950'
+          className='w-[200px] h-[40px] 2xl:w-[287px] 2xl:h-[50px] bg-grayneutral-50 
+          hover:grayneutral-100 px-6 py-[3px] justify-between text-[12px] font-medium 2xl:text-body2-medium
+           text-grayneutral-950 rounded-[12px] 2xl:rounded-[16px]'
         >
           {activeIem?.name}
           <img
             src={icons.arrowDown}
-            className={`h-[14px] w-[14px] transition-transform duration-300 ${
+            className={`h-[10px] w-[10px] 2xl:h-[14px] 2xl:w-[14px] transition-transform duration-300 ${
               open ? 'rotate-180' : ''
             }`}
           />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='w-[287px] px-2' align='start'>
+      <DropdownMenuContent
+        className='w-[200px] 2xl:w-[287px] px-2'
+        align='start'
+      >
         {data &&
           data.length > 0 &&
           data.map((item) => (
             <DropdownMenuItem
               key={item.name}
               onClick={() => handleChangeValue(item)}
-              className='h-11 px-3 py-[10px] text-body2-medium text-grayneutral-950'
+              className='h-11 px-3 py-[10px] text-[12px] font-medium 2xl:text-body2-medium text-grayneutral-950'
             >
               {item.icon && (
                 <DropdownMenuShortcut>

@@ -13,7 +13,7 @@ const Input = React.forwardRef(
           <input
             type={type}
             className={cn(
-              `flex h-[54px] w-full rounded-[16px] border border-grayneutral-100 bg-text-50 px-6 py-[15px] 
+              `flex h-[45px] 2xl:h-[54px] w-full rounded-[12px] 2xl:rounded-[16px] border border-grayneutral-100 bg-text-50 px-6 py-[15px] 
               text-h5 text-text-800 shadow-sm transition-colors file:border-0 file:bg-transparent 
               file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground 
               focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-grayneutral-400 
@@ -29,7 +29,7 @@ const Input = React.forwardRef(
           {startIcon && (
             <img
               src={startIcon}
-              className='absolute left-4 top-1/2 -translate-y-1/2 h-6 w-6'
+              className='absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 2xl:h-6 2xl:w-6'
             />
           )}
         </div>
@@ -41,12 +41,13 @@ const Input = React.forwardRef(
         <input
           type={showPassword ? 'text' : 'password'}
           className={cn(
-            `flex h-[54px] w-full rounded-[16px] border border-grayneutral-100 bg-text-50 px-6 py-[15px] 
+            `flex h-[45px] 2xl:h-[54px] w-full rounded-[12px] 2xl:rounded-[16px] border border-grayneutral-100 bg-text-50 px-6 py-[15px] 
           text-h5 text-text-800 shadow-sm transition-colors file:border-0 file:bg-transparent 
           file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground 
           focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-grayneutral-400 
           disabled:cursor-not-allowed disabled:opacity-50 md:text-sm pr-12`,
-            ariaInvalid && 'border-error-600 placeholder:text-error-600'
+            ariaInvalid && 'border-error-600 placeholder:text-error-600',
+            props.inputClassName
           )}
           ref={ref}
           {...props}

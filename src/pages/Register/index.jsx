@@ -66,7 +66,11 @@ const Register = () => {
                     <FormItem className='w-full'>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input placeholder='Nhập email' {...field} />
+                        <Input
+                          placeholder='Nhập email'
+                          className='!h-[54px]'
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -83,6 +87,7 @@ const Register = () => {
                           type='password'
                           placeholder='Nhập mật khẩu'
                           {...field}
+                          inputClassName='!h-[54px]'
                         />
                       </FormControl>
                       <FormMessage />
@@ -100,6 +105,7 @@ const Register = () => {
                           type='password'
                           placeholder='Nhập lại mật khẩu'
                           {...field}
+                          inputClassName='!h-[54px]'
                         />
                       </FormControl>
                       <FormMessage />

@@ -7,20 +7,13 @@ import {
   getSortedRowModel,
   useReactTable
 } from '@tanstack/react-table'
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { Checkbox } from '@/components/ui/checkbox'
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
+  DropdownMenuContent
 } from '@/components/ui/dropdown-menu'
-import { Input } from '@/components/ui/input'
 import {
   Table,
   TableBody,
@@ -33,7 +26,7 @@ import { useState } from 'react'
 import icons from '@/constants/icons'
 import PaginationCustom from './Components/PaginationCustom'
 
-const DataTable = ({ data, columns, borderRow = false }) => {
+const DataTable = ({ title, data, columns, borderRow = false, sortBy }) => {
   const [sorting, setSorting] = useState([])
   const [columnFilters, setColumnFilters] = useState([])
   const [columnVisibility, setColumnVisibility] = useState({})
@@ -59,8 +52,8 @@ const DataTable = ({ data, columns, borderRow = false }) => {
   })
 
   return (
-    <div className='w-full rounded-[32px] px-8 py-6 bg-white border border-grayneutral-200'>
-      <div className='flex items-center py-4'>
+    <div className='w-full rounded-[32px] px-8 py-4 2xl:py-6 bg-white border border-grayneutral-200'>
+      <div className='flex items-center py-1 2xl:py-4'>
         {/* <Input
           placeholder='Filter emails...'
           value={table.getColumn('email')?.getFilterValue() ?? ''}
@@ -71,18 +64,21 @@ const DataTable = ({ data, columns, borderRow = false }) => {
         /> */}
         <DropdownMenu>
           <div className='flex w-full justify-between items-center'>
-            <h3 className='text-h4 text-primary-700'>Danh sách thông báo</h3>
+            <h3 className='text-h5 2xl:text-h4 text-primary-700'>{title}</h3>
             <Button
               onClick={() => {
-                const emailColumn = table.getColumn('area')
-                if (emailColumn) {
-                  emailColumn.toggleSorting(emailColumn.getIsSorted() === 'asc')
+                const sortColumn = table.getColumn(sortBy)
+                if (sortColumn) {
+                  sortColumn.toggleSorting(sortColumn.getIsSorted() === 'asc')
                 }
               }}
               variant='outline'
-              className='h-[38px] w-[157px] rounded-[12px]'
+              className='h-[34px] w-[120px] 2xl:h-[38px] 2xl:w-[157px] text-tagline-semibold 2xl:text-body2-medium rounded-[12px]'
             >
-              <img src={icons.sortByText} className='w-[18px] h-[18px]' />
+              <img
+                src={icons.sortByText}
+                className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
+              />
               Sắp xếp theo
             </Button>
           </div>
@@ -117,7 +113,7 @@ const DataTable = ({ data, columns, borderRow = false }) => {
                   return (
                     <TableHead
                       key={header.id}
-                      className='text-subtitle3 text-text-950 text-center border-b border-gray-neutral-200'
+                      className='text-subtitle3 font-semibold text-text-950 text-center border-b border-gray-neutral-200'
                     >
                       {header.isPlaceholder
                         ? null

@@ -14,11 +14,17 @@ import {
 const DropdownExpanded = ({ title, icon, children }) => {
   return (
     <Collapsible className='group/collapsible'>
-      <SidebarMenuItem className='p-[10px] rounded-xl'>
+      <SidebarMenuItem className='p-[6px] 2xl:p-[10px] rounded-xl'>
         <SidebarMenuButton asChild>
           <CollapsibleTrigger className='flex items-center w-full'>
-            <img src={icon} alt={title} className='mr-4 h-6 w-6' />
-            <span className='text-subtitle1 text-black'>{title}</span>
+            <img
+              src={icon}
+              alt={title}
+              className='mr-4 w-5 h-5 2xl:h-6 2xl:w-6'
+            />
+            <span className='text-body2-medium 2xl:text-subtitle1 text-black'>
+              {title}
+            </span>
             <ChevronDown className='ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180' />
           </CollapsibleTrigger>
         </SidebarMenuButton>
@@ -35,7 +41,7 @@ const DropdownExpanded = ({ title, icon, children }) => {
               <SidebarMenuButton asChild>
                 <Link
                   to={child.url}
-                  className={`text-subtitle1 ${
+                  className={`text-body2-medium 2xl:text-subtitle1 ${
                     location.pathname === child.url
                       ? ' text-black'
                       : 'text-text-400'

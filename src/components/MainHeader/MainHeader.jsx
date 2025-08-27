@@ -13,7 +13,7 @@ const MainHeader = () => {
   const navigate = useNavigate()
 
   return (
-    <div className='bg-white h-[100px] 2xl:h-[118px] w-full px-12 py-8 flex items-center justify-between border-b border-grayneutral-200'>
+    <div className='bg-white h-[80px] 2xl:h-[118px] w-full px-12 py-8 flex items-center justify-between border-b border-grayneutral-200'>
       <div className='flex gap-6 items-center'>
         {/* Navigation */}
 
@@ -36,7 +36,7 @@ const MainHeader = () => {
         />
       </div>
       {/* Report */}
-      <div className='flex gap-2 2xl:gap-4 items-center'>
+      <div className='flex gap-3 2xl:gap-4 items-center'>
         <div className='flex gap-3 2xl:gap-[21px] items-center'>
           <p className='text-tagline-semibold 2xl:text-body2-medium'>
             Loại báo cáo
@@ -51,7 +51,7 @@ const MainHeader = () => {
           <PopoverTrigger asChild>
             <Button
               variant='outline'
-              className='w-[54px] h-[54px] hover:bg-grayneutral-200'
+              className='w-[42px] h-[42px] p-3 2xl:p-4 2xl:w-[54px] 2xl:h-[54px] hover:bg-grayneutral-200'
             >
               <img src={icons.bell} />
             </Button>
@@ -66,7 +66,7 @@ const MainHeader = () => {
         <img
           onClick={() => navigate('/profile')}
           src={images.avatar}
-          className='h-[54px] w-[54px] border rounded-full p-1 border-grayneutral-800 cursor-pointer'
+          className='h-[45px] w-[45px] 2xl:h-[54px] 2xl:w-[54px] border rounded-full p-1 border-grayneutral-800 cursor-pointer'
         />
       </div>
     </div>

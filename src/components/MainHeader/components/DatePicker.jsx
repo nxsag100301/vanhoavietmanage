@@ -76,7 +76,11 @@ const DatePicker = () => {
             variant='ghost'
             className='absolute top-1/2 left-1 -translate-y-1/2'
           >
-            <img src={icons.calendar} className='h-6 w-6' alt='calendar' />
+            <img
+              src={icons.calendar}
+              className='h-4 w-4 2xl:h-6 2xl:w-6'
+              alt='calendar'
+            />
           </Button>
         </PopoverTrigger>
         <PopoverContent className='w-auto overflow-hidden p-0' align='end'>

@@ -59,7 +59,7 @@ const ChangePasswordModal = ({ open, onChange }) => {
     <Dialog open={open} onOpenChange={onChange}>
       <DialogContent
         onInteractOutside={(e) => e.preventDefault()}
-        className='left-[80%] 2xl:left-[85%] top-[118px] translate-y-0 w-[519px] h-[925px] !rounded-[32px] px-[30px]'
+        className='left-[85%] top-[80px] 2xl:top-[118px] translate-y-0 w-[350px] 2xl:w-[420px] 3xl:w-[519px] h-[600px] 2xl:h-[700px] 3xl:h-[925px] !rounded-[32px] px-[30px]'
       >
         <Form {...form}>
           <form
@@ -70,18 +70,18 @@ const ChangePasswordModal = ({ open, onChange }) => {
               <DialogClose asChild>
                 <Button
                   variant='outline'
-                  className='h-[38px] w-[38px] rounded-full p-0'
+                  className='h-[28px] w-[28px] 2xl:h-[38px] 2xl:w-[38px] rounded-full p-0'
                 >
                   <img
                     src={icons.backArrow}
-                    className='w-[18px] h-[18px]'
+                    className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
                     style={{
                       filter: 'brightness(0) saturate(100%)'
                     }}
                   />
                 </Button>
               </DialogClose>
-              <DialogTitle className='!text-h3 text-primary-700 pb-1'>
+              <DialogTitle className='!text-h5 2xl:!text-h4 3xl:!text-h3 text-primary-700 pb-1'>
                 Đổi mật khẩu
               </DialogTitle>
             </DialogHeader>
@@ -115,11 +115,11 @@ const ChangePasswordModal = ({ open, onChange }) => {
             </div>
             <DialogFooter className='grid grid-cols-2'>
               <DialogClose asChild>
-                <Button variant='gray' className='h-[53px]'>
+                <Button variant='gray' className='h-[44px] 2xl:h-[53px]'>
                   Huỷ
                 </Button>
               </DialogClose>
-              <Button type='submit' className='h-[53px]'>
+              <Button type='submit' className='h-[44px] 2xl:h-[53px]'>
                 Cập nhật
               </Button>
             </DialogFooter>

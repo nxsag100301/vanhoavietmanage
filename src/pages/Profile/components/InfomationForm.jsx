@@ -74,15 +74,15 @@ const InfomationForm = () => {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(handleSaveChanges)}
-        className='px-8 py-6 border border-grayneutral-200 bg-white rounded-[32px]'
+        className='px-6 2xl:px-8 py-4 2xl:py-6 border border-grayneutral-200 bg-white rounded-[32px]'
       >
-        <div className='flex justify-between mb-8'>
-          <p className='text-h4 text-primary-700'>Thông tin</p>
+        <div className='flex justify-between mb-4 2xl:mb-8'>
+          <p className='text-h5 2xl:text-h4 text-primary-700'>Thông tin</p>
           {isEdit ? (
-            <Button type='submit' className='text-body2-medium text-white'>
+            <Button type='submit'>
               <img
                 src={icons.confirmed}
-                className='h-[18px] w-[18px] invert brightness-0'
+                className='h-[14px] w-[14px] 2xl:h-[18px] 2xl:w-[18px] invert brightness-0'
                 alt='confirmed'
               />
               Lưu thay đổi
@@ -92,10 +92,13 @@ const InfomationForm = () => {
               <Button
                 onClick={handleEdit}
                 variant='outline'
-                className='text-body2-medium text-text-950'
+                className=''
                 type='button'
               >
-                <img src={icons.pencil} className='h-[18px] w-[18px]' />
+                <img
+                  src={icons.pencil}
+                  className='h-[14px] w-[14px] 2xl:h-[18px] 2xl:w-[18px] filter brightness-0'
+                />
                 Chỉnh sửa
               </Button>
 
