@@ -8,12 +8,13 @@ import {
   DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import icons from '@/constants/icons'
+import { cn } from '@/lib/utils'
 
 // data = [
 //   {name: String, value: String, icon: any}
 // ]
 
-const Dropdown = ({ data, onChange }) => {
+const Dropdown = ({ data, onChange, className }) => {
   const [open, setOpen] = useState(false)
   const [activeIem, setActiveItem] = useState(data[0])
 
@@ -27,9 +28,10 @@ const Dropdown = ({ data, onChange }) => {
       <DropdownMenuTrigger asChild>
         <Button
           variant='outline'
-          className='w-[200px] h-[40px] 2xl:w-[287px] 2xl:h-[50px] bg-grayneutral-50 
-          hover:grayneutral-100 px-6 py-[3px] justify-between text-[12px] font-medium 2xl:text-body2-medium
-           text-grayneutral-950 rounded-[12px] 2xl:rounded-[16px]'
+          className={cn(
+            'w-full h-[40px] 2xl:h-[50px] bg-grayneutral-50 hover:grayneutral-100 px-6 py-[3px] justify-between text-[12px] 2xl:text-body2-regular text-grayneutral-950 rounded-[12px] 2xl:rounded-[16px]',
+            className
+          )}
         >
           {activeIem?.name}
           <img
@@ -41,7 +43,7 @@ const Dropdown = ({ data, onChange }) => {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className='w-[200px] 2xl:w-[287px] px-2'
+        className='w-[--radix-dropdown-menu-trigger-width] px-2'
         align='start'
       >
         {data &&
@@ -50,7 +52,7 @@ const Dropdown = ({ data, onChange }) => {
             <DropdownMenuItem
               key={item.name}
               onClick={() => handleChangeValue(item)}
-              className='h-11 px-3 py-[10px] text-[12px] font-medium 2xl:text-body2-medium text-grayneutral-950'
+              className='h-11 px-3 py-[10px] text-[12px] 2xl:text-body2-regular text-grayneutral-950'
             >
               {item.icon && (
                 <DropdownMenuShortcut>

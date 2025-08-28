@@ -1,17 +1,14 @@
 import React from 'react'
 import { Input } from '../ui/input'
 import icons from '@/constants/icons'
-import images from '@/constants/images'
 import { Switch } from '../ui/switch'
 import { Button } from '../ui/button'
 import DatePicker from './components/DatePicker'
-import { useNavigate } from 'react-router-dom'
 import Notifications from './components/Notifications'
 import { Popover, PopoverTrigger } from '../ui/popover'
+import ProfileMenu from './components/ProfileMenu'
 
 const MainHeader = () => {
-  const navigate = useNavigate()
-
   return (
     <div className='bg-white h-[80px] 2xl:h-[118px] w-full px-12 py-8 flex items-center justify-between border-b border-grayneutral-200'>
       <div className='flex gap-6 items-center'>
@@ -63,11 +60,7 @@ const MainHeader = () => {
         <DatePicker />
 
         {/* Profile */}
-        <img
-          onClick={() => navigate('/profile')}
-          src={images.avatar}
-          className='h-[45px] w-[45px] 2xl:h-[54px] 2xl:w-[54px] border rounded-full p-1 border-grayneutral-800 cursor-pointer'
-        />
+        <ProfileMenu />
       </div>
     </div>
   )

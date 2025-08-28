@@ -113,7 +113,7 @@ const Notifications = () => {
     },
     {
       accessorKey: 'area',
-      header: 'Khu vực',
+      header: () => <div className='text-center'>Khu vực</div>,
       cell: ({ row }) => (
         <div className='flex justify-center items-center gap-8'>
           <img
@@ -284,7 +284,7 @@ const Notifications = () => {
     },
     {
       accessorKey: 'title',
-      header: 'Tiêu đề',
+      header: () => <div className='text-center'>Tiêu đề</div>,
       cell: ({ row }) => (
         <div className='flex justify-start items-center gap-8'>
           <img
@@ -358,14 +358,18 @@ const Notifications = () => {
           </Badge>
         </div>
         <div className='flex gap-[14px] items-center'>
-          <Dropdown
-            data={notificationCategory}
-            onChange={setNotificationCatState}
-          />
-          <Dropdown
-            data={notificationType}
-            onChange={setNotificationTypeState}
-          />
+          <div className='w-[200px] 2xl:w-[287px]'>
+            <Dropdown
+              data={notificationCategory}
+              onChange={setNotificationCatState}
+            />
+          </div>
+          <div className='w-[200px] 2xl:w-[287px]'>
+            <Dropdown
+              data={notificationType}
+              onChange={setNotificationTypeState}
+            />
+          </div>
         </div>
       </div>
       <DataTable

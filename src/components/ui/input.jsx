@@ -13,7 +13,7 @@ const Input = React.forwardRef(
           <input
             type={type}
             className={cn(
-              `flex h-[45px] 2xl:h-[54px] w-full rounded-[12px] 2xl:rounded-[16px] border border-grayneutral-100 bg-text-50 px-6 py-[15px] 
+              `flex h-[40px] 2xl:h-[54px] w-full rounded-[12px] 2xl:rounded-[16px] border border-grayneutral-100 bg-text-50 px-6 py-[15px] 
               text-h5 text-text-800 shadow-sm transition-colors file:border-0 file:bg-transparent 
               file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground 
               focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-grayneutral-400 

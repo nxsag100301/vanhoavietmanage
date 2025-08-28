@@ -11,7 +11,7 @@ const Notifications = () => {
     <PopoverContent className='w-[600px] 2xl:w-[724px] pb-6 px-0 pt-0'>
       <NotificationHeader tab={tab} onChangeTab={setTab} />
       {tab === 'personal' ? (
-        <div className='space-y-4 max-h-[480px] 2xl:max-h-[766px] overflow-y-auto mt-1 pt-5'>
+        <div className='space-y-4 max-h-[480px] 2xl:max-h-[666px] overflow-y-auto mt-1 pt-5'>
           <PersonalNotification
             title='Đổi mật khẩu thành công'
             time='1 tiếng trước'
@@ -76,7 +76,7 @@ const Notifications = () => {
           />
         </div>
       ) : (
-        <div className='space-y-4 max-h-[480px] 2xl:max-h-[766px] overflow-y-auto mt-1 pt-5'>
+        <div className='space-y-4 max-h-[480px] 2xl:max-h-[666px] overflow-y-auto mt-1 pt-5'>
           <SystemNotification
             title='Linh Kỳ Mộc'
             time='1 tiếng trước'

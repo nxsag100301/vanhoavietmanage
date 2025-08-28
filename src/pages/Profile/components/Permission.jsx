@@ -10,6 +10,7 @@ const Permission = () => {
   ]
   return (
     <div
+      id='permission'
       className='min-h-[375px] bg-white border
      border-grayneutral-200 rounded-[32px] px-6 2xl:px-8 py-4 2xl:py-6'
     >

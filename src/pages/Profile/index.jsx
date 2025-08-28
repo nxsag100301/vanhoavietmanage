@@ -1,12 +1,26 @@
 import { Button } from '@/components/ui/button'
 import images from '@/constants/images'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import InfomationForm from './components/InfomationForm'
 import Permission from './components/Permission'
 import ChangePasswordModal from './components/ChangePasswordModal'
+import { useLocation } from 'react-router-dom'
 
 const Profile = () => {
   const [isChangePassword, setIsChangePassword] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash.replace('#', '') === 'changePassword') {
+      return setIsChangePassword(true)
+    }
+    if (location.hash) {
+      const el = document.getElementById(location.hash.replace('#', ''))
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }, [location])
   return (
     <div>
       <ChangePasswordModal

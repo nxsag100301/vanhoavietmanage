@@ -26,7 +26,14 @@ import { useState } from 'react'
 import icons from '@/constants/icons'
 import PaginationCustom from './Components/PaginationCustom'
 
-const DataTable = ({ title, data, columns, borderRow = false, sortBy }) => {
+const DataTable = ({
+  title,
+  data,
+  columns,
+  borderRow = false,
+  sortBy,
+  filterBy
+}) => {
   const [sorting, setSorting] = useState([])
   const [columnFilters, setColumnFilters] = useState([])
   const [columnVisibility, setColumnVisibility] = useState({})
@@ -65,22 +72,34 @@ const DataTable = ({ title, data, columns, borderRow = false, sortBy }) => {
         <DropdownMenu>
           <div className='flex w-full justify-between items-center'>
             <h3 className='text-h5 2xl:text-h4 text-primary-700'>{title}</h3>
-            <Button
-              onClick={() => {
-                const sortColumn = table.getColumn(sortBy)
-                if (sortColumn) {
-                  sortColumn.toggleSorting(sortColumn.getIsSorted() === 'asc')
-                }
-              }}
-              variant='outline'
-              className='h-[34px] w-[120px] 2xl:h-[38px] 2xl:w-[157px] text-tagline-semibold 2xl:text-body2-medium rounded-[12px]'
-            >
-              <img
-                src={icons.sortByText}
-                className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
-              />
-              Sắp xếp theo
-            </Button>
+            <div className='flex flex-row gap-[18px] items-center'>
+              <Button
+                variant='outline'
+                className='h-[34px]2xl:h-[38px] text-tagline-semibold 2xl:text-body2-medium rounded-[12px]'
+              >
+                <img
+                  src={icons.filter}
+                  className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
+                />
+                Bộ lọc
+              </Button>
+              <Button
+                onClick={() => {
+                  const sortColumn = table.getColumn(sortBy)
+                  if (sortColumn) {
+                    sortColumn.toggleSorting(sortColumn.getIsSorted() === 'asc')
+                  }
+                }}
+                variant='outline'
+                className='h-[34px] 2xl:h-[38px] text-tagline-semibold 2xl:text-body2-medium rounded-[12px]'
+              >
+                <img
+                  src={icons.sortByText}
+                  className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
+                />
+                Sắp xếp theo
+              </Button>
+            </div>
           </div>
 
           <DropdownMenuContent align='end'>
@@ -113,7 +132,7 @@ const DataTable = ({ title, data, columns, borderRow = false, sortBy }) => {
                   return (
                     <TableHead
                       key={header.id}
-                      className='text-subtitle3 font-semibold text-text-950 text-center border-b border-gray-neutral-200'
+                      className='text-subtitle3 font-semibold text-text-950 text-left border-b border-gray-neutral-200'
                     >
                       {header.isPlaceholder
                         ? null
@@ -134,7 +153,7 @@ const DataTable = ({ title, data, columns, borderRow = false, sortBy }) => {
                   {row.getVisibleCells().map((cell, idx) => (
                     <TableCell
                       key={cell.id}
-                      className={`text-center ${
+                      className={`text-left ${
                         borderRow
                           ? `border-t border-b border-gray-neutral-200 ${
                               idx === 0

@@ -32,8 +32,26 @@ import sortByText from '@/assets/icons/sortbytext.png'
 import threeDotsVertical from '@/assets/icons/3dotsvertical.png'
 import arrowLeftPagination from '@/assets/icons/arrowLeftPagination.png'
 import arrowRightPagination from '@/assets/icons/arrowRightPagination.png'
+import fingerPrint from '@/assets/icons/fingerprint.png'
+import language from '@/assets/icons/language.png'
+import people from '@/assets/icons/people.png'
+import logout from '@/assets/icons/logout.png'
+import trash from '@/assets/icons/trash.png'
+import card from '@/assets/icons/card.png'
+import detail from '@/assets/icons/detail.png'
+import close from '@/assets/icons/close.png'
+import filter from '@/assets/icons/filter.png'
 
 export default {
+  filter,
+  trash,
+  card,
+  detail,
+  close,
+  logout,
+  language,
+  people,
+  fingerPrint,
   home,
   community,
   bell,
