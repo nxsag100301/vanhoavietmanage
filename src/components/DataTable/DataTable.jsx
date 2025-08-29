@@ -59,8 +59,8 @@ const DataTable = ({
   })
 
   return (
-    <div className='w-full rounded-[32px] px-8 py-4 2xl:py-6 bg-white border border-grayneutral-200'>
-      <div className='flex items-center py-1 2xl:py-4'>
+    <div className='w-full rounded-[32px] px-8 py-4 3xl:py-6 bg-white border border-grayneutral-200'>
+      <div className='flex items-center py-1 3xl:py-4'>
         {/* <Input
           placeholder='Filter emails...'
           value={table.getColumn('email')?.getFilterValue() ?? ''}
@@ -71,15 +71,15 @@ const DataTable = ({
         /> */}
         <DropdownMenu>
           <div className='flex w-full justify-between items-center'>
-            <h3 className='text-h5 2xl:text-h4 text-primary-700'>{title}</h3>
+            <h3 className='text-h5 3xl:text-h4 text-primary-700'>{title}</h3>
             <div className='flex flex-row gap-[18px] items-center'>
               <Button
                 variant='outline'
-                className='h-[34px]2xl:h-[38px] text-tagline-semibold 2xl:text-body2-medium rounded-[12px]'
+                className='h-[34px]3xl:h-[38px] text-tagline-semibold 3xl:text-body2-medium rounded-[12px]'
               >
                 <img
                   src={icons.filter}
-                  className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
+                  className='w-[14px] h-[14px] 3xl:w-[18px] 3xl:h-[18px]'
                 />
                 Bộ lọc
               </Button>
@@ -91,11 +91,11 @@ const DataTable = ({
                   }
                 }}
                 variant='outline'
-                className='h-[34px] 2xl:h-[38px] text-tagline-semibold 2xl:text-body2-medium rounded-[12px]'
+                className='h-[34px] 3xl:h-[38px] text-tagline-semibold 3xl:text-body2-medium rounded-[12px]'
               >
                 <img
                   src={icons.sortByText}
-                  className='w-[14px] h-[14px] 2xl:w-[18px] 2xl:h-[18px]'
+                  className='w-[14px] h-[14px] 3xl:w-[18px] 3xl:h-[18px]'
                 />
                 Sắp xếp theo
               </Button>

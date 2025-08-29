@@ -8,7 +8,7 @@ export default function Layout({ children }) {
       <AppSidebar />
       <main className='w-full bg-text-50 pb-8'>
         <MainHeader />
-        <div className='px-8 2xl:px-12'> {children}</div>
+        <div className='px-8 3xl:px-12'> {children}</div>
       </main>
     </SidebarProvider>
   )

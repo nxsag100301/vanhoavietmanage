@@ -12,16 +12,16 @@ const Permission = () => {
     <div
       id='permission'
       className='min-h-[375px] bg-white border
-     border-grayneutral-200 rounded-[32px] px-6 2xl:px-8 py-4 2xl:py-6'
+     border-grayneutral-200 rounded-[32px] px-6 3xl:px-8 py-4 3xl:py-6'
     >
-      <p className='text-h5 2xl:text-h4 text-primary-700 mb-4 2xl:mb-8'>
+      <p className='text-h5 3xl:text-h4 text-primary-700 mb-4 3xl:mb-8'>
         Chức năng
       </p>
       <div className='flex gap-4'>
         {permission.map((item) => (
           <Badge
             key={item.name}
-            className='px-[14px] py-[6px] 2xl:px-[18px] 2xl:py-[10px]'
+            className='px-[14px] py-[6px] 3xl:px-[18px] 3xl:py-[10px]'
           >
             {item.name}
           </Badge>

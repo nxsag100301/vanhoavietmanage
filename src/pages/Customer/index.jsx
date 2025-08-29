@@ -2,12 +2,10 @@ import DataTable from '@/components/DataTable/DataTable'
 import Dropdown from '@/components/Dropdown/Dropdown'
 import { Button } from '@/components/ui/button'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+  Popover,
+  PopoverTrigger,
+  PopoverContent
+} from '@/components/ui/popover'
 import icons from '@/constants/icons'
 import React, { useState } from 'react'
 import AddCustomerModal from './components/AddCustomerModal'
@@ -18,7 +16,7 @@ const dropdownData = [
 ]
 
 const Icon = ({ src }) => {
-  return <img src={src} className='w-5 h-5 2xl:h-6 2xl:w-6' />
+  return <img src={src} className='w-5 h-5 3xl:h-6 3xl:w-6' />
 }
 
 const Customer = () => {
@@ -197,36 +195,46 @@ const Customer = () => {
       enableHiding: false,
       cell: ({ row }) => {
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant='outline' className='h-8 w-8 p-0'>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant='outline' className='h-8 w-8 p-0 rounded-full'>
                 <img
                   src={icons.threeDotsVertical}
                   className='w-[14px] h-[14px] brightness-0 select-none'
                   alt=''
                 />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
-              <DropdownMenuItem>
+            </PopoverTrigger>
+
+            <PopoverContent
+              side='bottom' // menu hiện bên dưới trigger
+              align='end' // căn phải trigger
+              sideOffset={5} // khoảng cách so với trigger
+              className='w-[200px] rounded-[12px] p-2 bg-white shadow-lg'
+            >
+              <button className='flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-100 w-full text-left'>
                 <Icon src={icons.detail} />
                 Xem thông tin
-              </DropdownMenuItem>
-              <DropdownMenuItem>
+              </button>
+
+              <button className='flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-100 w-full text-left'>
                 <Icon src={icons.pencil} />
                 Chỉnh sửa
-              </DropdownMenuItem>
-              <DropdownMenuItem>
+              </button>
+
+              <button className='flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-100 w-full text-left'>
                 <Icon src={icons.card} />
                 Thẻ khách hàng
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              </button>
+
+              <div className='border-t my-1' />
+
+              <button className='flex items-center gap-2 px-2 py-2 rounded hover:bg-gray-100 w-full text-left'>
                 <Icon src={icons.close} />
                 Xoá khách hàng
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </button>
+            </PopoverContent>
+          </Popover>
         )
       }
     }
@@ -238,13 +246,13 @@ const Customer = () => {
         open={openModalAddCustomer}
         onChange={setOpenModalAddCustomer}
       />
-      <div className='flex justify-between items-center my-3 2xl:my-1'>
+      <div className='flex justify-between items-center my-3 3xl:my-1'>
         <h3 className='page-title'>Danh sách khách hàng</h3>
         <div className='flex flex-row gap-[14px] items-center'>
           <Dropdown data={dropdownData} onChange={setArea} />
           <Button
             onClick={() => setOpenModalAddCustomer(true)}
-            className='h-[40px] 2xl:h-[51px]'
+            className='h-[40px] 3xl:h-[51px]'
           >
             Thêm khách hàng
           </Button>

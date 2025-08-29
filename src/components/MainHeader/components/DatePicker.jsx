@@ -49,7 +49,7 @@ const DatePicker = () => {
   }
 
   return (
-    <div className='relative flex gap-2 w-[200px] 2xl:w-[272px]'>
+    <div className='relative flex gap-2 w-[200px] 3xl:w-[272px]'>
       <Input
         id='date'
         value={value}
@@ -78,7 +78,7 @@ const DatePicker = () => {
           >
             <img
               src={icons.calendar}
-              className='h-4 w-4 2xl:h-6 2xl:w-6'
+              className='h-4 w-4 3xl:h-6 3xl:w-6'
               alt='calendar'
             />
           </Button>

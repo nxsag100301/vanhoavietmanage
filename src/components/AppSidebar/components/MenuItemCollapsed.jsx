@@ -12,7 +12,7 @@ const MenuItemCollapsed = ({ url, title, icon }) => {
       <TooltipTrigger asChild>
         <SidebarMenuButton asChild>
           <Link to={url} className='flex items-center justify-center'>
-            <img src={icon} alt={title} className='w-5 h-5 2xl:h-6 2xl:w-6' />
+            <img src={icon} alt={title} className='w-5 h-5 3xl:h-6 3xl:w-6' />
           </Link>
         </SidebarMenuButton>
       </TooltipTrigger>

@@ -75,15 +75,15 @@ export function AppSidebar() {
         collapsible='icon'
         data-state={isCollapsed ? 'collapsed' : 'expanded'}
       >
-        <SidebarContent className='px-[20px] py-4 2xl:py-8'>
-          <div className='mb-[10px] 2xl:mb-[60px] min-h-[60px] bg-[#D9D9D9]'></div>
+        <SidebarContent className='px-[20px] py-4 3xl:py-8'>
+          <div className='mb-[10px] 3xl:mb-[60px] min-h-[60px] bg-[#D9D9D9]'></div>
           {items.map((group) => (
             <SidebarGroup key={group.groupName}>
-              <SidebarGroupLabel className='text-[12px] 2xl:text-subtitle3 text-text-400 mb-1 2xl:mb-4 -z-10'>
+              <SidebarGroupLabel className='text-[12px] 3xl:text-subtitle3 text-text-400 mb-1 3xl:mb-4 -z-10'>
                 {group.groupName}
               </SidebarGroupLabel>
               <SidebarGroupContent>
-                <SidebarMenu className='space-y-1 2xl:space-y-[20px]'>
+                <SidebarMenu className='space-y-1 3xl:space-y-[20px]'>
                   {group.children.map((item) =>
                     item.children ? (
                       isCollapsed ? (
@@ -137,8 +137,8 @@ export function AppSidebar() {
           <SidebarTrigger
             className={`${
               !isCollapsed
-                ? 'ml-[15px] 2xl:ml-[17px]'
-                : 'ml-[20px] 2xl:ml-[21px]'
+                ? 'ml-[15px] 3xl:ml-[17px]'
+                : 'ml-[20px] 3xl:ml-[21px]'
             } mb-4 transition-all duration-300 ease-in-out`}
             onClick={() => setIsCollapsed((prev) => !prev)}
           />

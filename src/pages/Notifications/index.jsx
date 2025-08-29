@@ -3,13 +3,10 @@ import Dropdown from '@/components/Dropdown/Dropdown'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+  Popover,
+  PopoverTrigger,
+  PopoverContent
+} from '@/components/ui/popover'
 import icons from '@/constants/icons'
 import images from '@/constants/images'
 import { useState } from 'react'
@@ -90,9 +87,9 @@ const Notifications = () => {
     {
       id: 'status',
       cell: ({ row }) => (
-        <div className='flex justify-center gap-3 2xl:gap-6 items-center w-[100px] 2xl:w-[110px] mx-auto'>
+        <div className='flex justify-center gap-3 3xl:gap-6 items-center w-[100px] 3xl:w-[110px] mx-auto'>
           <div
-            className={`w-[10px] h-[10px] 2xl:w-[14px] 2xl:h-[14px] rounded-full ${
+            className={`w-[10px] h-[10px] 3xl:w-[14px] 3xl:h-[14px] rounded-full ${
               row.original.status === 'waiting'
                 ? 'bg-warning-300'
                 : 'bg-text-100'
@@ -100,11 +97,11 @@ const Notifications = () => {
           ></div>
           <img
             src={icons.starOutline}
-            className='h-5 w-5 2xl:w-6 2xl:h-6 cursor-pointer'
+            className='h-5 w-5 3xl:w-6 3xl:h-6 cursor-pointer'
           />
           <img
             src={icons.letter}
-            className='h-5 w-5 2xl:w-6 2xl:h-6 cursor-pointer'
+            className='h-5 w-5 3xl:w-6 3xl:h-6 cursor-pointer'
           />
         </div>
       ),
@@ -118,9 +115,9 @@ const Notifications = () => {
         <div className='flex justify-center items-center gap-8'>
           <img
             src={row.original.image}
-            className='w-[44px] h-[44px] 2xl:w-[60px] 2xl:h-[60px] rounded-[16px]'
+            className='w-[44px] h-[44px] 3xl:w-[60px] 3xl:h-[60px] rounded-[16px]'
           />
-          <p className='text-body2-medium 2xl:text-subtitle3 text-primary-700'>
+          <p className='text-body2-medium 3xl:text-subtitle3 text-primary-700'>
             {row.getValue('area')}
           </p>
         </div>
@@ -130,7 +127,7 @@ const Notifications = () => {
       accessorKey: 'content',
       header: 'Nội dung',
       cell: ({ row }) => (
-        <div className='text-body2-medium 2xl:text-subtitle3 text-text-800'>
+        <div className='text-body2-medium 3xl:text-subtitle3 text-text-800'>
           {row.getValue('content')}
         </div>
       )
@@ -139,7 +136,7 @@ const Notifications = () => {
       accessorKey: 'time',
       header: 'Thời gian',
       cell: ({ row }) => (
-        <div className='text-body2-medium 2xl:text-subtitle3 text-text-800'>
+        <div className='text-body2-medium 3xl:text-subtitle3 text-text-800'>
           {row.getValue('time')}
         </div>
       )
@@ -153,18 +150,18 @@ const Notifications = () => {
             <>
               <Button
                 variant='outline'
-                className='h-[38px] px-5 2xl:px-6 py-3 rounded-[14px] text-tagline-semibold 2xl:text-body2-medium'
+                className='h-[38px] px-5 3xl:px-6 py-3 rounded-[14px] text-tagline-semibold 3xl:text-body2-medium'
               >
                 Huỷ đơn
               </Button>
-              <Button className='h-[38px] px-5 2xl:px-6 py-3 rounded-[14px] !text-grayneutral-50 text-tagline-semibold 2xl:text-[14px] '>
+              <Button className='h-[38px] px-5 3xl:px-6 py-3 rounded-[14px] !text-grayneutral-50 text-tagline-semibold 3xl:text-[14px] '>
                 Xác nhận
               </Button>
             </>
           ) : (
             <Button
               variant='outline'
-              className='h-[38px] rounded-[14px] px-4 2xl:px-6 py-3 text-tagline-semibold 2xl:text-body2-medium'
+              className='h-[38px] rounded-[14px] px-4 3xl:px-6 py-3 text-tagline-semibold 3xl:text-body2-medium'
             >
               Xem thông tin
             </Button>
@@ -178,29 +175,40 @@ const Notifications = () => {
       cell: ({ row }) => {
         const payment = row.original
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              {/* <img src={icons.threeDotsVertical} className='w-[14px] h-[14px]' /> */}
-              <Button variant='outline' className='h-8 w-8 p-0'>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant='outline' className='h-8 w-8 p-0 rounded-full'>
                 <img
                   src={icons.threeDotsVertical}
                   className='w-[14px] h-[14px] brightness-0 select-none'
                   alt=''
                 />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem
+            </PopoverTrigger>
+
+            <PopoverContent className='w-[200px] rounded-[12px] p-2 bg-white shadow-lg'>
+              <div className='text-sm font-medium text-gray-500 px-2 py-1'>
+                Actions
+              </div>
+
+              <button
                 onClick={() => navigator.clipboard.writeText(payment.id)}
+                className='w-full text-left px-2 py-2 hover:bg-gray-100 rounded'
               >
                 Copy mã đơn hàng
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </button>
+
+              <div className='border-t my-1' />
+
+              <button className='w-full text-left px-2 py-2 hover:bg-gray-100 rounded'>
+                View customer
+              </button>
+
+              <button className='w-full text-left px-2 py-2 hover:bg-gray-100 rounded'>
+                View payment details
+              </button>
+            </PopoverContent>
+          </Popover>
         )
       }
     }
@@ -261,9 +269,9 @@ const Notifications = () => {
     {
       id: 'status',
       cell: ({ row }) => (
-        <div className='flex justify-center gap-3 2xl:gap-6 items-center w-[100px] 2xl:w-[110px] mx-auto'>
+        <div className='flex justify-center gap-3 3xl:gap-6 items-center w-[100px] 3xl:w-[110px] mx-auto'>
           <div
-            className={`w-[10px] h-[10px] 2xl:w-[14px] 2xl:h-[14px] rounded-full ${
+            className={`w-[10px] h-[10px] 3xl:w-[14px] 3xl:h-[14px] rounded-full ${
               row.original.status === 'waiting'
                 ? 'bg-warning-300'
                 : 'bg-text-100'
@@ -271,11 +279,11 @@ const Notifications = () => {
           ></div>
           <img
             src={icons.starOutline}
-            className='h-5 w-5 2xl:w-6 2xl:h-6 cursor-pointer'
+            className='h-5 w-5 3xl:w-6 3xl:h-6 cursor-pointer'
           />
           <img
             src={icons.letter}
-            className='h-5 w-5 2xl:w-6 2xl:h-6 cursor-pointer'
+            className='h-5 w-5 3xl:w-6 3xl:h-6 cursor-pointer'
           />
         </div>
       ),
@@ -289,9 +297,9 @@ const Notifications = () => {
         <div className='flex justify-start items-center gap-8'>
           <img
             src={row.original.image}
-            className='w-[44px] h-[44px] 2xl:w-[60px] 2xl:h-[60px] rounded-[16px] border border-gray-200 object-contain'
+            className='w-[44px] h-[44px] 3xl:w-[60px] 3xl:h-[60px] rounded-[16px] border border-gray-200 object-contain'
           />
-          <p className='text-body2-medium 2xl:text-subtitle3 text-primary-700'>
+          <p className='text-body2-medium 3xl:text-subtitle3 text-primary-700'>
             {row.getValue('title')}
           </p>
         </div>
@@ -301,7 +309,7 @@ const Notifications = () => {
       accessorKey: 'content',
       header: 'Nội dung',
       cell: ({ row }) => (
-        <div className='text-body2-medium 2xl:text-subtitle3 text-text-800'>
+        <div className='text-body2-medium 3xl:text-subtitle3 text-text-800'>
           {row.getValue('content') || '-'}
         </div>
       )
@@ -310,7 +318,7 @@ const Notifications = () => {
       accessorKey: 'time',
       header: 'Thời gian',
       cell: ({ row }) => (
-        <div className='text-body2-medium 2xl:text-subtitle3 text-text-800'>
+        <div className='text-body2-medium 3xl:text-subtitle3 text-text-800'>
           {row.getValue('time')}
         </div>
       )
@@ -321,50 +329,61 @@ const Notifications = () => {
       cell: ({ row }) => {
         const payment = row.original
         return (
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              {/* <img src={icons.threeDotsVertical} className='w-[14px] h-[14px]' /> */}
-              <Button variant='outline' className='h-8 w-8 p-0'>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button variant='outline' className='h-8 w-8 p-0 rounded-full'>
                 <img
                   src={icons.threeDotsVertical}
                   className='w-[14px] h-[14px] brightness-0 select-none'
                   alt=''
                 />
               </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align='end'>
-              <DropdownMenuLabel>Actions</DropdownMenuLabel>
-              <DropdownMenuItem
+            </PopoverTrigger>
+
+            <PopoverContent className='w-[200px] rounded-[12px] p-2 bg-white shadow-lg'>
+              <div className='text-sm font-medium text-gray-500 px-2 py-1'>
+                Actions
+              </div>
+
+              <button
                 onClick={() => navigator.clipboard.writeText(payment.id)}
+                className='w-full text-left px-2 py-2 hover:bg-gray-100 rounded'
               >
                 Copy mã đơn hàng
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-              <DropdownMenuItem>View payment details</DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+              </button>
+
+              <div className='border-t my-1' />
+
+              <button className='w-full text-left px-2 py-2 hover:bg-gray-100 rounded'>
+                View customer
+              </button>
+
+              <button className='w-full text-left px-2 py-2 hover:bg-gray-100 rounded'>
+                View payment details
+              </button>
+            </PopoverContent>
+          </Popover>
         )
       }
     }
   ]
   return (
     <div>
-      <div className='flex justify-between items-center h-[50px] my-4 2xl:my-8'>
+      <div className='flex justify-between items-center h-[50px] my-4 3xl:my-8'>
         <div className='flex gap-4 items-center'>
           <h1 className='page-title'>Thông báo</h1>
-          <Badge className='bg-warning-600 px-[12px] 2xl:px-[18px] py-[6px] 2xl:py-[10px] rounded-full !text-primary-50 text-[10px] font-medium 2xl:text-tagline-semibold'>
+          <Badge className='bg-warning-600 px-[12px] 3xl:px-[18px] py-[6px] 3xl:py-[10px] rounded-full !text-primary-50 text-[10px] font-medium 3xl:text-tagline-semibold'>
             5 thông báo chưa đọc
           </Badge>
         </div>
         <div className='flex gap-[14px] items-center'>
-          <div className='w-[200px] 2xl:w-[287px]'>
+          <div className='w-[200px] 3xl:w-[287px]'>
             <Dropdown
               data={notificationCategory}
               onChange={setNotificationCatState}
             />
           </div>
-          <div className='w-[200px] 2xl:w-[287px]'>
+          <div className='w-[200px] 3xl:w-[287px]'>
             <Dropdown
               data={notificationType}
               onChange={setNotificationTypeState}

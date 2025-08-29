@@ -53,10 +53,10 @@ const PaginationPrevious = ({ className, ...props }) => (
   >
     <Button
       variant='outline'
-      className='gap-2 h-8 2xl:h-10 w-[88px] 2xl:w-[105px] rounded-[14px] px-1 2xl:px-4 py-[10px] bg-grayneutral-50'
+      className='gap-2 h-8 3xl:h-10 w-[88px] 3xl:w-[105px] rounded-[14px] px-1 3xl:px-4 py-[10px] bg-grayneutral-50'
     >
-      <img src={icons.arrowLeftAvailable} className='h-4 w-4 2xl:w-5 2xl:h-5' />
-      <span className='text-text-950 font-medium text-tagline-semibold 2xl:text-body2-medium'>
+      <img src={icons.arrowLeftAvailable} className='h-4 w-4 3xl:w-5 3xl:h-5' />
+      <span className='text-text-950 font-medium text-tagline-semibold 3xl:text-body2-medium'>
         Trước
       </span>
     </Button>
@@ -73,14 +73,14 @@ const PaginationNext = ({ className, ...props }) => (
   >
     <Button
       variant='outline'
-      className='gap-2 h-8 2xl:h-10 w-[88px] 2xl:w-[105px] rounded-[14px] px-1 2xl:px-4 py-[10px] bg-grayneutral-50'
+      className='gap-2 h-8 3xl:h-10 w-[88px] 3xl:w-[105px] rounded-[14px] px-1 3xl:px-4 py-[10px] bg-grayneutral-50'
     >
-      <span className='text-text-950 font-medium text-tagline-semibold 2xl:text-body2-medium'>
+      <span className='text-text-950 font-medium text-tagline-semibold 3xl:text-body2-medium'>
         Sau
       </span>
       <img
         src={icons.arrowRightAvailable}
-        className='h-4 w-4 2xl:w-5 2xl:h-5'
+        className='h-4 w-4 3xl:w-5 3xl:h-5'
       />
     </Button>
   </PaginationLink>

@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom'
 
 const DropdownCollapsed = ({ title, icon, children }) => {
   return (
-    <SidebarMenuItem className='p-[6px] 2xl:p-[10px] rounded-xl'>
+    <SidebarMenuItem className='p-[6px] 3xl:p-[10px] rounded-xl'>
       <DropdownMenu>
         <Tooltip>
           <TooltipTrigger asChild>
@@ -23,7 +23,7 @@ const DropdownCollapsed = ({ title, icon, children }) => {
               <button className='flex items-center justify-center w-full cursor-pointer'>
                 <img
                   src={icon}
-                  className='w-5 h-5 2xl:h-6 2xl:w-6'
+                  className='w-5 h-5 3xl:h-6 3xl:w-6'
                   alt={title}
                 />
               </button>

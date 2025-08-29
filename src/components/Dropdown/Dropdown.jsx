@@ -1,71 +1,59 @@
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger
-} from '@/components/ui/dropdown-menu'
+  Popover,
+  PopoverTrigger,
+  PopoverContent
+} from '@/components/ui/popover'
 import icons from '@/constants/icons'
 import { cn } from '@/lib/utils'
 
-// data = [
-//   {name: String, value: String, icon: any}
-// ]
+// data = [{ name: String, value: String, icon: any }]
 
-const Dropdown = ({ data, onChange, className }) => {
+const DropdownPopover = ({ data, onChange, className }) => {
+  const [activeItem, setActiveItem] = useState(data[0])
   const [open, setOpen] = useState(false)
-  const [activeIem, setActiveItem] = useState(data[0])
 
   const handleChangeValue = (item) => {
     setActiveItem(item)
     onChange(item.value)
+    setOpen(false)
   }
 
   return (
-    <DropdownMenu onOpenChange={setOpen}>
-      <DropdownMenuTrigger asChild>
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
         <Button
           variant='outline'
           className={cn(
-            'w-full h-[40px] 2xl:h-[50px] bg-grayneutral-50 hover:grayneutral-100 px-6 py-[3px] justify-between text-[12px] 2xl:text-body2-regular text-grayneutral-950 rounded-[12px] 2xl:rounded-[16px]',
+            'w-full h-[40px] 3xl:h-[50px] bg-grayneutral-50 hover:bg-grayneutral-100 px-6 py-[3px] justify-between text-[12px] 3xl:text-body2-regular text-grayneutral-950 rounded-[12px] 3xl:rounded-[16px]',
             className
           )}
         >
-          {activeIem?.name}
+          {activeItem?.name}
           <img
             src={icons.arrowDown}
-            className={`h-[10px] w-[10px] 2xl:h-[14px] 2xl:w-[14px] transition-transform duration-300 ${
+            className={`h-[10px] w-[10px] 3xl:h-[14px] 3xl:w-[14px] transition-transform duration-300 ${
               open ? 'rotate-180' : ''
             }`}
           />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent
-        className='w-[--radix-dropdown-menu-trigger-width] px-2'
-        align='start'
-      >
-        {data &&
-          data.length > 0 &&
-          data.map((item) => (
-            <DropdownMenuItem
-              key={item.name}
-              onClick={() => handleChangeValue(item)}
-              className='h-11 px-3 py-[10px] text-[12px] 2xl:text-body2-regular text-grayneutral-950'
-            >
-              {item.icon && (
-                <DropdownMenuShortcut>
-                  <img src={item.icon} className='h-[18px] w-[18px]' />
-                </DropdownMenuShortcut>
-              )}
+      </PopoverTrigger>
 
-              {item.name}
-            </DropdownMenuItem>
-          ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      <PopoverContent className='w-[--radix-popover-trigger-width] max-h-[300px] overflow-auto p-2 rounded-[12px] bg-white shadow-lg'>
+        {data.map((item) => (
+          <button
+            key={item.name}
+            onClick={() => handleChangeValue(item)}
+            className='flex items-center gap-2 px-3 py-2 hover:bg-gray-100 w-full text-left text-grayneutral-950 text-[12px] 3xl:text-body2-regular rounded-[12px]'
+          >
+            {item.icon && <img src={item.icon} className='h-[18px] w-[18px]' />}
+            {item.name}
+          </button>
+        ))}
+      </PopoverContent>
+    </Popover>
   )
 }
 
-export default Dropdown
+export default DropdownPopover

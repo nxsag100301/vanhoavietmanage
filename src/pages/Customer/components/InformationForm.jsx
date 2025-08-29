@@ -95,21 +95,21 @@ const InformationForm = () => {
             <Button
               onClick={() => setGender('male')}
               variant={gender === 'male' ? 'default' : 'outline'}
-              className='text-tagline-regular px-6 h-[34px] 2xl:h-[38px] rounded-[12px] 2xl:rounded-[14px]'
+              className='text-tagline-regular px-6 h-[34px] 3xl:h-[38px] rounded-[12px] 3xl:rounded-[14px]'
             >
               Nam
             </Button>
             <Button
               onClick={() => setGender('female')}
               variant={gender === 'female' ? 'default' : 'outline'}
-              className='text-tagline-regular px-6 h-[34px] 2xl:h-[38px] rounded-[12px] 2xl:rounded-[14px]'
+              className='text-tagline-regular px-6 h-[34px] 3xl:h-[38px] rounded-[12px] 3xl:rounded-[14px]'
             >
               Nữ
             </Button>
             <Button
               onClick={() => setGender('none')}
               variant={gender === 'none' ? 'default' : 'outline'}
-              className='text-tagline-regular px-6 h-[34px] 2xl:h-[38px] rounded-[12px] 2xl:rounded-[14px]'
+              className='text-tagline-regular px-6 h-[34px] 3xl:h-[38px] rounded-[12px] 3xl:rounded-[14px]'
             >
               Không chọn
             </Button>
